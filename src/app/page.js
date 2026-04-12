@@ -7,6 +7,7 @@ import LanguageToggle from "./components/LanguageToggle";
 import { useLanguage } from "./components/LanguageContext";
 import BirdsLottie from "./components/BirdsLottie";
 
+
 // ✅ Official New Year time (Sri Lanka)
 const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
 
@@ -117,6 +118,17 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink">
       <div className="aurudu-glow" />
       <BirdsLottie />
+ 
+      <div className="firecrackers" aria-hidden="true">
+        <span className="firecracker firecracker-1" />
+        <span className="firecracker firecracker-2" />
+        <span className="firecracker firecracker-3" />
+        <span className="firecracker firecracker-4" />
+        <span className="firecracker firecracker-5" />
+        <span className="firecracker firecracker-6" />
+        <span className="firecracker firecracker-7" />
+        <span className="firecracker firecracker-8" />
+      </div>
       <div className="birds" aria-hidden="true">
         <span className="bird bird-1" />
         <span className="bird bird-2" />
