@@ -80,6 +80,62 @@ body::before {
   letter-spacing: -0.02em;
 }
 
+.aurudu-header {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72rem;
+  padding: 2rem 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(42, 29, 20, 0.8);
+  min-height: 3.5rem;
+}
+
+.header-language {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.language-compact {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(216, 75, 75, 0.18);
+}
+
+.language-compact .language-button {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--aurudu-green), var(--aurudu-gold));
+  color: #fffaf0;
+  border-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .header-language {
+    position: static;
+    transform: none;
+    margin-top: 0.8rem;
+  }
+
+  .aurudu-header {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.6rem 1.5rem 0;
+    min-height: 0;
+  }
+}
+
 .language-section {
   margin: 1.5rem auto 0;
   width: 100%;

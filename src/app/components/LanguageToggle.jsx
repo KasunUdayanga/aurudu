@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import { useLanguage } from "./LanguageContext";
 
 const LANGUAGES = [
@@ -18,9 +19,26 @@ const COPY = {
   },
 };
 
-export default function LanguageToggle() {
+export default function LanguageToggle({ variant = "full" }) {
   const { language, setLanguage } = useLanguage();
   const text = COPY[language] ?? COPY.si;
+
+  if (variant === "compact") {
+    const nextLanguage = language === "si" ? "en" : "si";
+    const buttonLabel = language === "si" ? "English" : "සිංහල";
+
+    return (
+      <div className="language-compact" aria-label="Language selector">
+        <button
+          type="button"
+          className="language-button is-active"
+          onClick={() => setLanguage(nextLanguage)}
+        >
+          {buttonLabel}
+        </button>
+      </div>
+    );
+  }
 
   return (
     <section className="language-section" aria-label="Language selector">
@@ -47,3 +65,7 @@ export default function LanguageToggle() {
     </section>
   );
 }
+
+LanguageToggle.propTypes = {
+  variant: PropTypes.oneOf(["full", "compact"]),
+};

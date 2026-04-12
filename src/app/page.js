@@ -17,8 +17,6 @@ const COPY = {
     heroTitle: "සුභ අලුත් අවුරුද්දක් වේවා! 🎉",
     heroBody:
       "ඔබටත් ඔබේ පවුලටත් සතුට, සෞභාග්‍ය සහ සාමය උදා වන අලුත් අවුරුද්දක් වෙයිවා. ඊළඟ අවුරුදු උත්සවය සදහා ඔබගේ මිතුරන් එක්කර ගන්න සහ නව සප්ත වර්ණ වලින් සැරසෙන්න.",
-    primaryCta: "සුභ පැතුම් බෙදාගන්න",
-    secondaryCta: "උත්සව සැලසුම බලන්න",
     cards: [
       {
         title: "කාලය",
@@ -104,8 +102,6 @@ const COPY = {
     heroTitle: "Happy Sinhala & Tamil New Year! 🎉",
     heroBody:
       "Wishing you and your family a year filled with happiness, prosperity, and peace. Bring your friends together and celebrate with warm festive colors.",
-    primaryCta: "Share your wishes",
-    secondaryCta: "View the celebration plan",
     cards: [
       {
         title: "Time",
@@ -189,19 +185,14 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink">
       <div className="aurudu-glow" aria-hidden="true" />
 
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-8 text-sm font-medium text-ink/80">
-        <span className="rounded-full border border-white/40 bg-white/70 px-4 py-2 shadow-sm">
+      <header className="aurudu-header">
+        <span className="rounded-full border border-white/40 bg-white/70 px-5 py-2.5 shadow-sm">
           {text.headerBadge}
         </span>
-        <div className="flex items-center gap-3">
-          <span className="hidden sm:inline">{text.headerTagline}</span>
-          <span className="rounded-full bg-aurudu-green/90 px-3 py-1 text-white">
-            {text.headerDate}
-          </span>
+        <div className="header-language">
+          <LanguageToggle variant="compact" />
         </div>
       </header>
-
-      <LanguageToggle />
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-12 lg:flex-row lg:items-center">
         <section className="flex flex-1 flex-col gap-6">
@@ -215,14 +206,6 @@ export default function Home() {
           <p className="max-w-xl text-lg leading-8 text-ink/80">
             {text.heroBody}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="aurudu-button aurudu-button-primary">
-              {text.primaryCta}
-            </button>
-            <button className="aurudu-button aurudu-button-ghost">
-              {text.secondaryCta}
-            </button>
-          </div>
 
           <AuruduCountdown />
 
@@ -246,16 +229,7 @@ export default function Home() {
             <span />
           </div>
 
-          <div className="aurudu-portal">
-            <div className="aurudu-cube">
-              <div className="face front">{text.cubeFaces[0]}</div>
-              <div className="face back">{text.cubeFaces[1]}</div>
-              <div className="face right">{text.cubeFaces[2]}</div>
-              <div className="face left">{text.cubeFaces[3]}</div>
-              <div className="face top">{text.cubeFaces[4]}</div>
-              <div className="face bottom">{text.cubeFaces[5]}</div>
-            </div>
-          </div>
+
 
           <div className="aurudu-highlight">
             <h4>{text.highlightTitle}</h4>
