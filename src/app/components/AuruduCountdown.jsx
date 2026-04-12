@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
-const targetDate = new Date("2026-04-14T00:00:00");
+const targetDate = new Date("2026-04-14T09:32:00");
 
 const buildTimeLeft = (now) => {
   const diff = targetDate.getTime() - now.getTime();
@@ -47,7 +47,7 @@ export default function AuruduCountdown() {
     ];
   }, [language, timeLeft]);
 
-  let headingText = "තව ටිකක් බලාගන්න";
+  let headingText = "ඉතිරි කාලය තව ";
   if (language === "en") {
     headingText = "Almost there";
   }
@@ -61,7 +61,7 @@ export default function AuruduCountdown() {
         <p className="aurudu-countdown-title">
           {language === "en"
             ? "Time remaining for the New Year"
-            : "අලුත් අවුරුදු උදාවට ඉතිරි කාලය"}
+            : "අලුත් අවුරුදු උදාවට "}
         </p>
         <h3 className="aurudu-countdown-heading">{headingText}</h3>
       </div>

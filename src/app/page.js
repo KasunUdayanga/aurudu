@@ -38,7 +38,6 @@ const COPY = {
       },
     ],
 
-    cubeFaces: ["සතුට", "සෞභාග්‍ය", "සාමය", "ආදරය", "ආරක්ෂාව", "එකමුතුව"],
 
     highlightTitle: "අවුරුදු වර්ණ තේමාව",
     highlightBody:
@@ -95,8 +94,6 @@ nekathCards: [
       "Wishing you and your family happiness, prosperity, and peace in the coming year. Celebrate together with warmth and joy.",
 
 
-
-    cubeFaces: ["Joy", "Prosperity", "Peace", "Love", "Safety", "Unity"],
 
     highlightTitle: "Festive colors",
     highlightBody:
