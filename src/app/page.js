@@ -1,41 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import AuruduCountdown from "./components/AuruduCountdown";
 import LanguageToggle from "./components/LanguageToggle";
 import { useLanguage } from "./components/LanguageContext";
 
+// ✅ Official New Year time (Sri Lanka)
+const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
+
 const COPY = {
   si: {
-    headerBadge: "🌾 2026 සිංහල හා தமிழ் අලුත් අවුරුද්ද",
-    headerTagline: "සම්ප්‍රදායික රසකැවිලි සමඟ සතුටු වෙමු!",
-    headerDate: "අප්‍රේල් 12 – 15",
-    heroLabel: "අවුරුදු උත්සවය",
-    heroTitle: "සුභ අලුත් අවුරුද්දක් වේවා!",
-    heroBody:
-      "ඔබටත් ඔබේ පවුලේ සියලු දෙනාටත් සතුට, සෞභාග්‍ය සහ සාමය පිරි අලුත් අවුරුද්දක් වේවා. මිතුරන් සමඟ එක්වී සතුටින් මෙම උත්සවය සමරන්න.",
+    headerBadge: "🌾 2026 සිංහල හා හින්දු අලුත් අවුරුද්ද",
+    heroBeforeTitle: "ලැබීමට නියමිත අලුත් අවුරුද්දට කසුන්ගෙන් සුභ පැතුම්! 🌸",
+    heroAfterTitle: "ලැබුණු අලුත් අවුරුද්දට කසුන්ගෙන් සුභ පැතුම්! 🎉",
 
-    cards: [
-      {
-        title: "කාලය",
-        body: "අප්‍රේල් 12 සිට 15 දක්වා සතුටු උත්සව සමය.",
-      },
-      {
-        title: "රසකැවිලි",
-        body: "කවුම්, කොකිස්, අලුවා සහ තවත් රසවත් කෑම.",
-      },
-      {
-        title: "ගෙවල් සැරසිලි",
-        body: "මල්, කොඩි සහ සම්ප්‍රදායික අලංකාර.",
-      },
-      {
-        title: "පවුල් ක්‍රීඩා",
-        body: "කනමේනිය, කොට්ටා පොර සහ විනෝද ක්‍රීඩා.",
-      },
-    ],
+    heroBeforeBody:
+      "ලැබෙන අලුත් අවුරුද්ද ඔබට සහ ඔබගේ පවුලට සතුට, සෞභාග්‍ය සහ සාමය ඌද වේවා!",
+    heroAfterBody:
+      "මෙම අලුත් අවුරුද්ද ඔබට සහ ඔබගේ පවුලට සතුට, සෞභාග්‍ය සහ සාමය ගෙන ඒවා!",
 
     highlightTitle: "අවුරුදු වර්ණ තේමාව",
-    highlightBody: "උණුසුම, සතුට සහ සෞඛ්‍යය නියෝජනය කරන වර්ණ වලින් සැරසෙන්න.",
+    highlightBody:
+      "උණුසුම, සතුට සහ සෞඛ්‍යය නියෝජනය කරන වර්ණ වලින් සැරසිල ලස්සනට සමරන්න.",
 
     nekathTitle: "අලුත් අවුරුදු නැකත් 2026",
     nekathBody: "මෙවර අවුරුදු නැකත් සම්පූර්ණයෙන් පහතින් දැක්වේ.",
@@ -43,88 +30,66 @@ const COPY = {
     nekathCards: [
       {
         title: "නව සඳ බැලීම",
-        body: "අප්‍රේල් 20 වන දින සහ මැයි 19 වන දින සිදු කරයි.",
+        body: "අප්‍රේල් 20 සහ මැයි 19 දින.",
       },
       {
         title: "පරණ අවුරුද්ද සඳහා ස්නානය",
-        body: "අප්‍රේල් 13 වන දින දිවුල් පත් යොදා ස්නානය කිරීම.",
+        body: "අප්‍රේල් 13 දිවුල් පත් යොදා ස්නානය.",
       },
       {
         title: "අලුත් අවුරුදු උදාව",
-        body: "අප්‍රේල් 14 වන දින පෙ.ව. 09:32 ට.",
+        body: "අප්‍රේල් 14 පෙ.ව. 09:32",
       },
       {
         title: "පුන්‍ය කාලය",
-        body: "පෙ.ව. 03:56 සිට පෙ.ව. 09:32 දක්වා.",
+        body: "පෙ.ව. 03:56 සිට 09:32 දක්වා",
       },
       {
         title: "ආහාර පිසීම",
-        body: "අප්‍රේල් 14 පෙ.ව. 10:41 ට.",
+        body: "අප්‍රේල් 14 පෙ.ව. 10:41",
       },
       {
-        title: "වැඩ ඇරඹීම, ගනුදෙනු කිරීම",
-        body: "අප්‍රේල් 14 දින ප.ව. 12:05 ට.",
+        title: "වැඩ ඇරඹීම",
+        body: "අප්‍රේල් 14 ප.ව. 12:05",
       },
       {
         title: "හිසතෙල් ගෑම",
-        body: "අප්‍රේල් 15 පෙ.ව. 06:54 ට.",
+        body: "අප්‍රේල් 15 පෙ.ව. 06:54",
       },
       {
         title: "රැකියා සඳහා පිටත්ව යාම",
-        body: "අප්‍රේල් 20 පෙ.ව. 06:27 ට.",
+        body: "අප්‍රේල් 20 පෙ.ව. 06:27",
       },
     ],
   },
 
   en: {
     headerBadge: "🌾 Sinhala & Tamil New Year 2026",
-    headerTagline: "Celebrate with traditional sweets!",
-    headerDate: "April 12 – 15",
-    heroLabel: "New Year Festival",
-    heroTitle: "Happy Sinhala & Tamil New Year! 🎉",
-    heroBody:
-      "Wishing you and your family happiness, prosperity, and peace in the coming year. Celebrate together with warmth and joy.",
+
+    heroBeforeTitle: "Warm wishes from Kasun for the upcoming New Year! 🌸",
+    heroAfterTitle: "Heartfelt New Year wishes from Kasun! 🎉",
+
+    heroBeforeBody:
+      "May the upcoming New Year bring happiness, prosperity, and peace to you and your loved ones.",
+    heroAfterBody:
+      "May this New Year bring happiness, prosperity, and peace to you and your family.",
 
     highlightTitle: "Festive colors",
     highlightBody:
       "Celebrate with colors symbolizing warmth, health, and happiness.",
 
     nekathTitle: "Sinhala & Tamil New Year Nekath 2026",
-    nekathBody: "Here are the official auspicious times for the New Year.",
+    nekathBody: "Official auspicious times for the New Year.",
 
     nekathCards: [
-      {
-        title: "New moon",
-        body: "April 20 and May 19.",
-      },
-      {
-        title: "Bath for old year",
-        body: "April 13 using herbal leaves (Divul leaves).",
-      },
-      {
-        title: "New Year dawn",
-        body: "April 14 at 09:32 AM.",
-      },
-      {
-        title: "Punya kala",
-        body: "From 03:56 AM to 09:32 AM.",
-      },
-      {
-        title: "Cooking time",
-        body: "April 14 at 10:41 AM.",
-      },
-      {
-        title: "Work & transactions",
-        body: "April 14 at 12:05 PM.",
-      },
-      {
-        title: "Oil anointing",
-        body: "April 15 at 06:54 AM.",
-      },
-      {
-        title: "Leaving for work",
-        body: "April 20 at 06:27 AM.",
-      },
+      { title: "New moon", body: "April 20 and May 19" },
+      { title: "Bath for old year", body: "April 13" },
+      { title: "New Year dawn", body: "April 14 at 09:32 AM" },
+      { title: "Punya kala", body: "03:56 AM to 09:32 AM" },
+      { title: "Cooking", body: "April 14 at 10:41 AM" },
+      { title: "Work start", body: "April 14 at 12:05 PM" },
+      { title: "Oil anointing", body: "April 15 at 06:54 AM" },
+      { title: "Leaving for work", body: "April 20 at 06:27 AM" },
     ],
   },
 };
@@ -133,35 +98,51 @@ export default function Home() {
   const { language } = useLanguage();
   const text = COPY[language] ?? COPY.si;
 
+  // ✅ dynamic state
+  const [isAfterNewYear, setIsAfterNewYear] = useState(
+    new Date() >= NEW_YEAR_TIME
+  );
+
+  // ✅ auto update at exact time
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAfterNewYear(new Date() >= NEW_YEAR_TIME);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink">
-      <div className="aurudu-glow" aria-hidden="true" />
+      <div className="aurudu-glow" />
 
       <header className="aurudu-header">
-        <span className="rounded-full border border-white/40 bg-white/70 px-5 py-2.5 shadow-sm">
+        <span className="rounded-full border bg-white/70 px-5 py-2 shadow-sm">
           {text.headerBadge}
         </span>
-        <div className="header-language">
-          <LanguageToggle variant="compact" />
-        </div>
+        <LanguageToggle variant="compact" />
       </header>
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-12 lg:flex-row lg:items-center">
+        {/* LEFT */}
         <section className="flex flex-1 flex-col gap-6">
           <h1 className="aurudu-title text-4xl sm:text-5xl lg:text-6xl">
-            {text.heroTitle}
+            {isAfterNewYear ? text.heroAfterTitle : text.heroBeforeTitle}
           </h1>
 
-          <p className="max-w-xl text-lg text-ink/80">{text.heroBody}</p>
+          <p className="max-w-xl text-lg text-ink/80">
+            {isAfterNewYear ? text.heroAfterBody : text.heroBeforeBody}
+          </p>
 
           <AuruduCountdown />
         </section>
 
+        {/* RIGHT */}
         <section className="flex flex-1 flex-col items-center gap-6">
           <div className="sun-canvas">
             <Image
-              src="/aurudu/Screenshot%202026-04-13%20000900.png"
-              alt="Aurudu celebration portrait"
+              src="/aurudu/Screenshot 2026-04-13 000900.png"
+              alt="Aurudu celebration"
               width={420}
               height={420}
               priority
@@ -175,6 +156,7 @@ export default function Home() {
         </section>
       </main>
 
+      {/* NEKATH */}
       <section className="mx-auto w-full max-w-6xl px-6 pb-24">
         <div className="aurudu-nekath">
           <h2 className="text-2xl font-semibold">{text.nekathTitle}</h2>
@@ -185,7 +167,10 @@ export default function Home() {
               <div
                 key={card.title}
                 className={`aurudu-nekath-card ${
-                  card.title.includes("උදාව") ? "ring-2 ring-aurudu-red" : ""
+                  card.title.includes("උදාව") ||
+                  card.title.includes("New Year dawn")
+                    ? "ring-2 ring-aurudu-red scale-105"
+                    : ""
                 }`}
               >
                 <h4>{card.title}</h4>
