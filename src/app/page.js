@@ -1,13 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import AuruduCountdown from "./components/AuruduCountdown";
 import LanguageToggle from "./components/LanguageToggle";
 import { useLanguage } from "./components/LanguageContext";
-
-const SunScene = dynamic(() => import("./components/SunScene"), {
-  ssr: false,
-});
 
 const COPY = {
   si: {
@@ -15,7 +11,7 @@ const COPY = {
     headerTagline: "සම්ප්‍රදායික රසකැවිලි සමඟ සතුටු වෙමු!",
     headerDate: "අප්‍රේල් 12 – 15",
     heroLabel: "අවුරුදු උත්සවය",
-    heroTitle: "සුභ අලුත් අවුරුද්දක් වේවා! 🎉",
+    heroTitle: "සුභ අලුත් අවුරුද්දක් වේවා!",
     heroBody:
       "ඔබටත් ඔබේ පවුලේ සියලු දෙනාටත් සතුට, සෞභාග්‍ය සහ සාමය පිරි අලුත් අවුරුද්දක් වේවා. මිතුරන් සමඟ එක්වී සතුටින් මෙම උත්සවය සමරන්න.",
 
@@ -38,50 +34,46 @@ const COPY = {
       },
     ],
 
-
     highlightTitle: "අවුරුදු වර්ණ තේමාව",
-    highlightBody:
-      "උණුසුම, සතුට සහ සෞඛ්‍යය නියෝජනය කරන වර්ණ වලින් සැරසෙන්න.",
+    highlightBody: "උණුසුම, සතුට සහ සෞඛ්‍යය නියෝජනය කරන වර්ණ වලින් සැරසෙන්න.",
 
+    nekathTitle: "අලුත් අවුරුදු නැකත් 2026",
+    nekathBody: "මෙවර අවුරුදු නැකත් සම්පූර්ණයෙන් පහතින් දැක්වේ.",
 
-nekathTitle: "අලුත් අවුරුදු නැකත් 2026",
-nekathBody: "මෙවර අවුරුදු නැකත් සම්පූර්ණයෙන් පහතින් දැක්වේ.",
-
-nekathCards: [
-  {
-    title: "නව සඳ බැලීම",
-    body: "අප්‍රේල් 20 වන දින සහ මැයි 19 වන දින සිදු කරයි.",
-  },
-  {
-    title: "පරණ අවුරුද්ද සඳහා ස්නානය",
-    body: "අප්‍රේල් 13 වන දින දිවුල් පත් යොදා ස්නානය කිරීම.",
-  },
-  {
-    title: "අලුත් අවුරුදු උදාව",
-    body: "අප්‍රේල් 14 වන දින පෙ.ව. 09:32 ට.",
-  },
-  {
-    title: "පුන්‍ය කාලය",
-    body: "පෙ.ව. 03:56 සිට පෙ.ව. 09:32 දක්වා.",
-  },
-  {
-    title: "ආහාර පිසීම",
-    body: "අප්‍රේල් 14 පෙ.ව. 10:41 ට.",
-  },
-  {
-    title: "වැඩ ඇරඹීම, ගනුදෙනු කිරීම",
-    body: "අප්‍රේල් 14 දින ප.ව. 12:05 ට.",
-  },
-  {
-    title: "හිසතෙල් ගෑම",
-    body: "අප්‍රේල් 15 පෙ.ව. 06:54 ට.",
-  },
-  {
-    title: "රැකියා සඳහා පිටත්ව යාම",
-    body: "අප්‍රේල් 20 පෙ.ව. 06:27 ට.",
-  },
-],
-
+    nekathCards: [
+      {
+        title: "නව සඳ බැලීම",
+        body: "අප්‍රේල් 20 වන දින සහ මැයි 19 වන දින සිදු කරයි.",
+      },
+      {
+        title: "පරණ අවුරුද්ද සඳහා ස්නානය",
+        body: "අප්‍රේල් 13 වන දින දිවුල් පත් යොදා ස්නානය කිරීම.",
+      },
+      {
+        title: "අලුත් අවුරුදු උදාව",
+        body: "අප්‍රේල් 14 වන දින පෙ.ව. 09:32 ට.",
+      },
+      {
+        title: "පුන්‍ය කාලය",
+        body: "පෙ.ව. 03:56 සිට පෙ.ව. 09:32 දක්වා.",
+      },
+      {
+        title: "ආහාර පිසීම",
+        body: "අප්‍රේල් 14 පෙ.ව. 10:41 ට.",
+      },
+      {
+        title: "වැඩ ඇරඹීම, ගනුදෙනු කිරීම",
+        body: "අප්‍රේල් 14 දින ප.ව. 12:05 ට.",
+      },
+      {
+        title: "හිසතෙල් ගෑම",
+        body: "අප්‍රේල් 15 පෙ.ව. 06:54 ට.",
+      },
+      {
+        title: "රැකියා සඳහා පිටත්ව යාම",
+        body: "අප්‍රේල් 20 පෙ.ව. 06:27 ට.",
+      },
+    ],
   },
 
   en: {
@@ -93,51 +85,47 @@ nekathCards: [
     heroBody:
       "Wishing you and your family happiness, prosperity, and peace in the coming year. Celebrate together with warmth and joy.",
 
-
-
     highlightTitle: "Festive colors",
     highlightBody:
       "Celebrate with colors symbolizing warmth, health, and happiness.",
 
+    nekathTitle: "Sinhala & Tamil New Year Nekath 2026",
+    nekathBody: "Here are the official auspicious times for the New Year.",
 
-nekathTitle: "Sinhala & Tamil New Year Nekath 2026",
-nekathBody: "Here are the official auspicious times for the New Year.",
-
-nekathCards: [
-  {
-    title: "New moon",
-    body: "April 20 and May 19.",
-  },
-  {
-    title: "Bath for old year",
-    body: "April 13 using herbal leaves (Divul leaves).",
-  },
-  {
-    title: "New Year dawn",
-    body: "April 14 at 09:32 AM.",
-  },
-  {
-    title: "Punya kala",
-    body: "From 03:56 AM to 09:32 AM.",
-  },
-  {
-    title: "Cooking time",
-    body: "April 14 at 10:41 AM.",
-  },
-  {
-    title: "Work & transactions",
-    body: "April 14 at 12:05 PM.",
-  },
-  {
-    title: "Oil anointing",
-    body: "April 15 at 06:54 AM.",
-  },
-  {
-    title: "Leaving for work",
-    body: "April 20 at 06:27 AM.",
-  },
-],
-
+    nekathCards: [
+      {
+        title: "New moon",
+        body: "April 20 and May 19.",
+      },
+      {
+        title: "Bath for old year",
+        body: "April 13 using herbal leaves (Divul leaves).",
+      },
+      {
+        title: "New Year dawn",
+        body: "April 14 at 09:32 AM.",
+      },
+      {
+        title: "Punya kala",
+        body: "From 03:56 AM to 09:32 AM.",
+      },
+      {
+        title: "Cooking time",
+        body: "April 14 at 10:41 AM.",
+      },
+      {
+        title: "Work & transactions",
+        body: "April 14 at 12:05 PM.",
+      },
+      {
+        title: "Oil anointing",
+        body: "April 15 at 06:54 AM.",
+      },
+      {
+        title: "Leaving for work",
+        body: "April 20 at 06:27 AM.",
+      },
+    ],
   },
 };
 
@@ -160,25 +148,24 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-12 lg:flex-row lg:items-center">
         <section className="flex flex-1 flex-col gap-6">
-
-
           <h1 className="aurudu-title text-4xl sm:text-5xl lg:text-6xl">
             {text.heroTitle}
           </h1>
 
-          <p className="max-w-xl text-lg text-ink/80">
-            {text.heroBody}
-          </p>
-
+          <p className="max-w-xl text-lg text-ink/80">{text.heroBody}</p>
 
           <AuruduCountdown />
-
-
         </section>
 
         <section className="flex flex-1 flex-col items-center gap-6">
           <div className="sun-canvas">
-            <SunScene />
+            <Image
+              src="/aurudu/Screenshot%202026-04-13%20000900.png"
+              alt="Aurudu celebration portrait"
+              width={420}
+              height={420}
+              priority
+            />
           </div>
 
           <div className="aurudu-highlight">
@@ -188,7 +175,6 @@ export default function Home() {
         </section>
       </main>
 
-    
       <section className="mx-auto w-full max-w-6xl px-6 pb-24">
         <div className="aurudu-nekath">
           <h2 className="text-2xl font-semibold">{text.nekathTitle}</h2>
