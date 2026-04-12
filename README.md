@@ -25,3 +25,4 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - To enable the FMBindumathi font, add the font files to `public/fonts/`:
   - `FMBindumathi-Regular.woff2`
   - `FMBindumathi-Regular.ttf`
+- Open-source photos are loaded from Unsplash (see `src/app/page.js`).
