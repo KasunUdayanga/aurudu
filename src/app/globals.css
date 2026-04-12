@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "0KDROSE";
-  src: url("/fonts/0KDROSE-Regular.woff2") format("woff2"),
-    url("/fonts/0KDROSE-Regular.ttf") format("truetype");
+  font-family: "FMBindumathi";
+  src: url("/fonts/FMBindumathi-Regular.woff2") format("woff2"),
+    url("/fonts/FMBindumathi-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
   --aurudu-green: #2f9e68;
   --aurudu-sky: #fff1d6;
   --aurudu-ink: #2a1d14;
-  --font-rose: "0KDROSE";
+  --font-bindu: "FMBindumathi";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -34,10 +34,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-rose), var(--font-sinhala), var(--font-geist-sans),
-    "Noto Sans", sans-serif;
+  font-family: var(--font-geist-sans), "Noto Sans", sans-serif;
   position: relative;
   overflow-x: hidden;
+}
+
+html[data-language="si"] body {
+  font-family: var(--font-bindu), var(--font-sinhala), var(--font-geist-sans),
+    "Noto Sans", sans-serif;
 }
 
 body::before {
@@ -249,6 +253,24 @@ section {
 .aurudu-lanterns span:nth-child(3) {
   animation-delay: -2.4s;
   background: linear-gradient(180deg, #ffb347, var(--aurudu-red));
+}
+
+.sun-canvas {
+  width: min(280px, 70vw);
+  height: min(280px, 70vw);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 244, 220, 0.6),
+    transparent 70%
+  );
+  box-shadow: 0 18px 40px rgba(242, 169, 0, 0.25);
+  overflow: hidden;
+}
+
+.sun-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .aurudu-portal {
@@ -486,6 +508,65 @@ section {
 }
 
 .aurudu-nekath-card p {
+  color: rgba(42, 29, 20, 0.72);
+  font-size: 0.95rem;
+}
+
+.aurudu-gallery {
+  border-radius: 28px;
+  padding: 2rem;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 246, 232, 0.9)
+  );
+  box-shadow: 0 18px 36px rgba(42, 29, 20, 0.12);
+  display: grid;
+  gap: 1.6rem;
+}
+
+.aurudu-gallery-grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.aurudu-gallery-card {
+  border-radius: 20px;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(216, 75, 75, 0.16);
+  text-align: center;
+  box-shadow: 0 14px 26px rgba(42, 29, 20, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aurudu-gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(42, 29, 20, 0.12);
+}
+
+.aurudu-gallery-image {
+  width: 100%;
+  border-radius: 16px;
+  padding: 0.8rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 238, 210, 0.8),
+    transparent 70%
+  );
+  display: grid;
+  place-items: center;
+}
+
+.aurudu-gallery-card h4 {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--aurudu-red);
+}
+
+.aurudu-gallery-card p {
+  margin-top: 0.4rem;
   color: rgba(42, 29, 20, 0.72);
   font-size: 0.95rem;
 }

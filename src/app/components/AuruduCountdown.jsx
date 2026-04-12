@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useLanguage } from "./LanguageContext";
 
 const targetDate = new Date("2026-04-14T00:00:00");
 
@@ -21,6 +22,7 @@ const buildTimeLeft = (now) => {
 };
 
 export default function AuruduCountdown() {
+  const { language } = useLanguage();
   const [timeLeft, setTimeLeft] = useState(() => buildTimeLeft(new Date()));
 
   useEffect(() => {
@@ -31,23 +33,37 @@ export default function AuruduCountdown() {
     return () => clearInterval(timer);
   }, []);
 
-  const items = useMemo(
-    () => [
-      { label: "දින", value: timeLeft.days },
-      { label: "පැය", value: timeLeft.hours },
-      { label: "මිනිත්තු", value: timeLeft.minutes },
-      { label: "තත්පර", value: timeLeft.seconds },
-    ],
-    [timeLeft]
-  );
+  const items = useMemo(() => {
+    const labels =
+      language === "en"
+        ? ["Days", "Hours", "Minutes", "Seconds"]
+        : ["දින", "පැය", "මිනිත්තු", "තත්පර"];
+
+    return [
+      { label: labels[0], value: timeLeft.days },
+      { label: labels[1], value: timeLeft.hours },
+      { label: labels[2], value: timeLeft.minutes },
+      { label: labels[3], value: timeLeft.seconds },
+    ];
+  }, [language, timeLeft]);
+
+  let headingText = "තව ටිකක් බලාගන්න";
+  if (language === "en") {
+    headingText = "Almost there";
+  }
+  if (timeLeft.isLive) {
+    headingText = language === "en" ? "Happy New Year!" : "අලුත් අවුරුද්ද ආවා!";
+  }
 
   return (
     <div className="aurudu-countdown">
       <div>
-        <p className="aurudu-countdown-title">අලුත් අවුරුදු උදාවට ඉතිරි කාලය</p>
-        <h3 className="aurudu-countdown-heading">
-          {timeLeft.isLive ? "අලුත් අවුරුද්ද ආවා!" : "තව ටිකක් බලාගන්න"}
-        </h3>
+        <p className="aurudu-countdown-title">
+          {language === "en"
+            ? "Time remaining for the New Year"
+            : "අලුත් අවුරුදු උදාවට ඉතිරි කාලය"}
+        </p>
+        <h3 className="aurudu-countdown-heading">{headingText}</h3>
       </div>
       <div className="aurudu-countdown-grid">
         {items.map((item) => (

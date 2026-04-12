@@ -21,6 +21,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 - Theme colors are defined in `src/app/globals.css`.
 - The 3D cube animation is pure CSS (no external animation libraries).
-- To enable the 0KDROSE Regular font, add the font files to `public/fonts/`:
-  - `0KDROSE-Regular.woff2`
-  - `0KDROSE-Regular.ttf`
+- The sun 3D effect is rendered with `@react-three/fiber` and `three`.
+- To enable the FMBindumathi font, add the font files to `public/fonts/`:
+  - `FMBindumathi-Regular.woff2`
+  - `FMBindumathi-Regular.ttf`
