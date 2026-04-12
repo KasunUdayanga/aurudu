@@ -59,6 +59,130 @@ body::before {
   z-index: -1;
 }
 
+.birds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.birds-lottie {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.birds-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.bird {
+  position: absolute;
+  width: 18px;
+  height: 8px;
+  border-radius: 50% 50% 0 0;
+  border: 2px solid #111;
+  border-color: #111 transparent transparent transparent;
+  transform: translateX(-20vw);
+  animation: bird-fly 22s linear infinite;
+}
+
+.bird::before,
+.bird::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  border-radius: 50% 50% 0 0;
+  border: 2px solid #111;
+  border-color: #111 transparent transparent transparent;
+  top: -4px;
+  animation: bird-flap 0.8s ease-in-out infinite;
+}
+
+.bird::before {
+  left: -10px;
+  transform-origin: right center;
+}
+
+.bird::after {
+  right: -10px;
+  transform-origin: left center;
+}
+
+.bird-1 {
+  top: 18%;
+  animation-duration: 18s;
+  animation-delay: -2s;
+  transform: translateX(-30vw) scale(0.8);
+}
+
+.bird-2 {
+  top: 28%;
+  animation-duration: 24s;
+  animation-delay: -10s;
+  transform: translateX(-50vw) scale(1.1);
+}
+
+.bird-3 {
+  top: 14%;
+  animation-duration: 20s;
+  animation-delay: -6s;
+  transform: translateX(-40vw) scale(0.7);
+}
+
+.bird-4 {
+  top: 36%;
+  animation-duration: 26s;
+  animation-delay: -14s;
+  transform: translateX(-60vw) scale(0.9);
+}
+
+.bird-5 {
+  top: 22%;
+  animation-duration: 19s;
+  animation-delay: -8s;
+  transform: translateX(-35vw) scale(0.85);
+}
+
+.bird-6 {
+  top: 42%;
+  animation-duration: 28s;
+  animation-delay: -16s;
+  transform: translateX(-55vw) scale(1);
+}
+
+@keyframes bird-fly {
+  0% {
+    transform: translateX(-30vw) translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(40vw) translateY(-12px) scale(1);
+  }
+  100% {
+    transform: translateX(120vw) translateY(6px) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes bird-flap {
+  0%,
+  100% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+
 * {
   box-sizing: border-box;
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import AuruduCountdown from "./components/AuruduCountdown";
 import LanguageToggle from "./components/LanguageToggle";
 import { useLanguage } from "./components/LanguageContext";
+import BirdsLottie from "./components/BirdsLottie";
 
 // ✅ Official New Year time (Sri Lanka)
 const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
@@ -115,6 +116,15 @@ export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink">
       <div className="aurudu-glow" />
+      <BirdsLottie />
+      <div className="birds" aria-hidden="true">
+        <span className="bird bird-1" />
+        <span className="bird bird-2" />
+        <span className="bird bird-3" />
+        <span className="bird bird-4" />
+        <span className="bird bird-5" />
+        <span className="bird bird-6" />
+      </div>
 
       <header className="aurudu-header">
         <span className="rounded-full border bg-white/70 px-5 py-2 shadow-sm">
