@@ -1,12 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import AuruduCountdown from "./components/AuruduCountdown";
 import LanguageToggle from "./components/LanguageToggle";
 import { useLanguage } from "./components/LanguageContext";
-import BirdsLottie from "./components/BirdsLottie";
 
+const AuruduCountdown = dynamic(() => import("./components/AuruduCountdown"), {
+  ssr: false,
+});
+const BirdsLottie = dynamic(() => import("./components/BirdsLottie"), {
+  ssr: false,
+});
+const DotLottieBackdrop = dynamic(
+  () => import("./components/DotLottieBackdrop"),
+  { ssr: false }
+);
 
 // ✅ Official New Year time (Sri Lanka)
 const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
@@ -115,10 +124,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink">
+    <div
+      className="relative flex min-h-screen flex-col bg-aurudu-sky text-ink"
+      suppressHydrationWarning
+    >
       <div className="aurudu-glow" />
+      <DotLottieBackdrop />
       <BirdsLottie />
- 
+
       <div className="firecrackers" aria-hidden="true">
         <span className="firecracker firecracker-1" />
         <span className="firecracker firecracker-2" />
@@ -202,6 +215,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="pb-5 text-center text-sm text-ink/70">
+        @Kasun Udayanga 2026
+      </footer>
     </div>
   );
 }
