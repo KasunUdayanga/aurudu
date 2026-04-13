@@ -8,7 +8,7 @@
   --aurudu-green: #2f9e68;
   --aurudu-sky: #fff1d6;
   --aurudu-ink: #2a1d14;
-  --font-bindu: "Noto Sans Sinhala";
+  --font-bindu: "Noto Serif Sinhala";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -25,13 +25,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Noto Sans", sans-serif;
+  font-family: var(--font-english), var(--font-geist-sans), "Noto Sans",
+    sans-serif;
   position: relative;
   overflow-x: hidden;
 }
 
 html[data-language="si"] body {
-  font-family: var(--font-bindu), var(--font-sinhala), var(--font-geist-sans),
+  font-family: var(--font-sinhala), var(--font-bindu), var(--font-geist-sans),
     "Noto Sans", sans-serif;
 }
 
@@ -143,7 +144,7 @@ body::before {
   text-align: center;
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(42, 29, 20, 0.8);
+  color: rgba(219, 105, 23, 0.8);
   min-height: 3.5rem;
 }
 

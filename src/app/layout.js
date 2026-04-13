@@ -1,5 +1,10 @@
 import PropTypes from "prop-types";
-import { Geist, Geist_Mono, Noto_Sans_Sinhala } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Noto_Serif_Sinhala,
+  Poppins,
+} from "next/font/google";
 import { LanguageProvider } from "./components/LanguageContext";
 import "./globals.css";
 
@@ -13,10 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const notoSinhala = Noto_Sans_Sinhala({
+const notoSinhala = Noto_Serif_Sinhala({
   variable: "--font-sinhala",
   subsets: ["sinhala"],
   weight: ["400", "500", "600", "700"],
+});
+
+const poppins = Poppins({
+  variable: "--font-english",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -29,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${notoSinhala.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSinhala.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>{children}</LanguageProvider>
