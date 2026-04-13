@@ -58,23 +58,33 @@ export default function AuruduCountdown() {
   return (
     <div className="aurudu-countdown">
       <div>
-        <p className="aurudu-countdown-title">
-          {language === "en"
-            ? "Time remaining for the New Year"
-            : "අලුත් අවුරුදු උදාවට "}
-        </p>
+        {!timeLeft.isLive && (
+          <p className="aurudu-countdown-title">
+            {language === "en"
+              ? "Time remaining for the New Year"
+              : "අලුත් අවුරුදු උදාවට "}
+          </p>
+        )}
         <h3 className="aurudu-countdown-heading">{headingText}</h3>
       </div>
-      <div className="aurudu-countdown-grid">
-        {items.map((item) => (
-          <div key={item.label} className="aurudu-countdown-card">
-            <span className="countdown-value">
-              {String(item.value).padStart(2, "0")}
-            </span>
-            <span className="countdown-label">{item.label}</span>
-          </div>
-        ))}
-      </div>
+      {timeLeft.isLive ? (
+        <div className="aurudu-countdown-live">
+          {language === "en"
+            ? "Wishing you a joyful and prosperous New Year!"
+            : "සුභම සුභ අලුත් අවුරුද්දක් වේවා!"}
+        </div>
+      ) : (
+        <div className="aurudu-countdown-grid">
+          {items.map((item) => (
+            <div key={item.label} className="aurudu-countdown-card">
+              <span className="countdown-value">
+                {String(item.value).padStart(2, "0")}
+              </span>
+              <span className="countdown-label">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
