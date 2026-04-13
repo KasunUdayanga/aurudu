@@ -87,6 +87,21 @@ body::before {
   opacity: 0.7;
 }
 
+@media (max-width: 768px) {
+  .sun-lottie-backdrop {
+    top: 2vh;
+    right: 50%;
+    transform: translateX(50%);
+    width: min(200px, 60vw);
+    height: min(200px, 60vw);
+  }
+
+  .sun-canvas {
+    width: min(220px, 80vw);
+    height: min(220px, 80vw);
+  }
+}
+
 .sun-lottie-canvas {
   width: 100%;
   height: 100%;
@@ -146,6 +161,15 @@ body::before {
   font-weight: 600;
   color: rgba(219, 105, 23, 0.8);
   min-height: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .aurudu-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 1.5rem 0;
+    min-height: 0;
+  }
 }
 
 @media (max-width: 1024px) {

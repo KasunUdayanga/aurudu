@@ -38,7 +38,7 @@ const COPY = {
 
     highlightTitle: "අවුරුදු වර්ණ තේමාව",
     highlightBody:
-      "උණුසුම, සතුට සහ සෞඛ්‍යය නියෝජනය කරන වර්ණ වලින් සැරසිල ලස්සනට සමරන්න.",
+      "උණුසුම, සතුට සහ සෞඛ්‍යයෙන් පිරි මෙම නව වසර, ඔබගේ ජීවිතයට නව ආරම්භයක් වෙමින්, සිහින සැබෑ වන, බලාපොරොත්තු ඉටු වන, සෑම දිනක්ම අරුත්පූර්ණ වන සාර්ථකත්වයෙන් පිරි සුභම සුභ නව වසරක් වේවා!",
 
     nekathTitle: "අලුත් අවුරුදු නැකත් 2026",
     nekathBody: "මෙවර අවුරුදු නැකත් සම්පූර්ණයෙන් පහතින් දැක්වේ.",
@@ -92,7 +92,7 @@ const COPY = {
 
     highlightTitle: "Festive colors",
     highlightBody:
-      "Celebrate with colors symbolizing warmth, health, and happiness.",
+      "May this New Year, filled with warmth, happiness, and good health, bring a fresh beginning to your life, where your dreams come true, your hopes are fulfilled, and each day becomes meaningful and full of success.",
 
     nekathTitle: "Sinhala & Tamil New Year Nekath 2026",
     nekathBody: "Official auspicious times for the New Year.",
