@@ -107,7 +107,7 @@ body::before {
     top: 1.5vh;
     width: min(180px, 68vw);
     height: min(180px, 68vw);
-    opacity: 0.62;
+    opacity: 0;
   }
 
   .sun-canvas {
