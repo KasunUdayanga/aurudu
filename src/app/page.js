@@ -14,6 +14,14 @@ const DotLottieBackdrop = dynamic(
   () => import("./components/DotLottieBackdrop"),
   { ssr: false }
 );
+const TransparentBirdsBackdrop = dynamic(
+  () => import("./components/TransparentBirdsBackdrop"),
+  { ssr: false }
+);
+const SunLottieBackdrop = dynamic(
+  () => import("./components/SunLottieBackdrop"),
+  { ssr: false }
+);
 
 const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
 
@@ -127,7 +135,8 @@ export default function Home() {
     >
       <div className="aurudu-glow" />
       <DotLottieBackdrop />
-
+      <TransparentBirdsBackdrop />
+      <SunLottieBackdrop />
 
       <header className="aurudu-header">
         <span className="rounded-full border bg-white/70 px-5 py-2 shadow-sm">
