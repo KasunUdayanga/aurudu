@@ -145,9 +145,9 @@ export default function Home() {
         <LanguageToggle variant="compact" />
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-12 lg:flex-row lg:items-center">
+      <main className="aurudu-main mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-16 pt-12 lg:flex-row lg:items-center">
         {/* LEFT */}
-        <section className="flex flex-1 flex-col gap-6">
+        <section className="aurudu-hero flex flex-1 flex-col gap-6">
           <h1 className="aurudu-title text-4xl sm:text-5xl lg:text-6xl">
             {isAfterNewYear ? text.heroAfterTitle : text.heroBeforeTitle}
           </h1>
@@ -160,7 +160,7 @@ export default function Home() {
         </section>
 
         {/* RIGHT */}
-        <section className="flex flex-1 flex-col items-center gap-6">
+        <section className="aurudu-visual flex flex-1 flex-col items-center gap-6">
           <div className="sun-canvas">
             <Image
               src="/aurudu/Screenshot 2026-04-13 000900.png"

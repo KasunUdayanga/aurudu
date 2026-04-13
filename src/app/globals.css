@@ -148,6 +148,24 @@ body::before {
   min-height: 3.5rem;
 }
 
+@media (max-width: 1024px) {
+  .aurudu-main {
+    text-align: center;
+  }
+
+  .aurudu-hero {
+    align-items: center;
+  }
+
+  .aurudu-visual {
+    width: 100%;
+  }
+
+  .aurudu-highlight {
+    margin: 0 auto;
+  }
+}
+
 .language-compact {
   display: flex;
   gap: 0.4rem;
