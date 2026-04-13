@@ -9,15 +9,12 @@ import { useLanguage } from "./components/LanguageContext";
 const AuruduCountdown = dynamic(() => import("./components/AuruduCountdown"), {
   ssr: false,
 });
-const BirdsLottie = dynamic(() => import("./components/BirdsLottie"), {
-  ssr: false,
-});
+
 const DotLottieBackdrop = dynamic(
   () => import("./components/DotLottieBackdrop"),
   { ssr: false }
 );
 
-// ✅ Official New Year time (Sri Lanka)
 const NEW_YEAR_TIME = new Date("2026-04-14T09:32:00+05:30");
 
 const COPY = {
@@ -130,26 +127,7 @@ export default function Home() {
     >
       <div className="aurudu-glow" />
       <DotLottieBackdrop />
-      <BirdsLottie />
 
-      <div className="firecrackers" aria-hidden="true">
-        <span className="firecracker firecracker-1" />
-        <span className="firecracker firecracker-2" />
-        <span className="firecracker firecracker-3" />
-        <span className="firecracker firecracker-4" />
-        <span className="firecracker firecracker-5" />
-        <span className="firecracker firecracker-6" />
-        <span className="firecracker firecracker-7" />
-        <span className="firecracker firecracker-8" />
-      </div>
-      <div className="birds" aria-hidden="true">
-        <span className="bird bird-1" />
-        <span className="bird bird-2" />
-        <span className="bird bird-3" />
-        <span className="bird bird-4" />
-        <span className="bird bird-5" />
-        <span className="bird bird-6" />
-      </div>
 
       <header className="aurudu-header">
         <span className="rounded-full border bg-white/70 px-5 py-2 shadow-sm">
