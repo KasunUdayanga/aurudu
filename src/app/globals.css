@@ -102,6 +102,33 @@ body::before {
   }
 }
 
+@media (max-width: 540px) {
+  .sun-lottie-backdrop {
+    top: 1.5vh;
+    width: min(180px, 68vw);
+    height: min(180px, 68vw);
+    opacity: 0.62;
+  }
+
+  .sun-canvas {
+    width: min(200px, 78vw);
+    height: min(200px, 78vw);
+    padding: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .sun-lottie-backdrop {
+    width: min(160px, 75vw);
+    height: min(160px, 75vw);
+  }
+
+  .sun-canvas {
+    width: min(180px, 80vw);
+    height: min(180px, 80vw);
+  }
+}
+
 .sun-lottie-canvas {
   width: 100%;
   height: 100%;
