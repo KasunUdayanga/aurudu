@@ -76,6 +76,10 @@ const COPY = {
         title: "රැකියා සඳහා පිටත්ව යාම",
         body: "අප්‍රේල් 20 පෙ.ව. 06:27",
       },
+            {
+        title: "පැල සිටුවීම",
+        body: "අප්‍රේල් 23 බ්‍රහස්පතින්දා පෙ.ව. 09:01ට.",
+      },
     ],
   },
 
@@ -106,6 +110,7 @@ const COPY = {
       { title: "Work start", body: "April 14 at 12:06 PM" },
       { title: "Oil anointing", body: "April 15 at 06:55 AM" },
       { title: "Leaving for work", body: "April 20 at 06:27 AM" },
+      { title: "Planting Ritual", body: "23 April 2026 at 09:01 AM" },
     ],
   },
   ta: {
@@ -136,6 +141,7 @@ const COPY = {
       { title: "வேலை ஆரம்பம்", body: "ஏப்ரல் 14 பிற்பகல் 12:06" },
       { title: "எண்ணெய் தடவுதல்", body: "ஏப்ரல் 15 காலை 06:55" },
       { title: "வேலைக்குப் புறப்படுதல்", body: "ஏப்ரல் 20 காலை 06:27" },
+      { title: "மரம் நடும் சடங்கு", body: "ஏப்ரல் 23 வியாழக்கிழமை காலை 09:01 மணிக்கு" },
     ],
   },
 };
@@ -230,6 +236,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-4xl px-6 pb-20">
+        <div className="aurudu-nekath text-center">
+          <h2 className="text-2xl font-semibold">{text.plantingTitle}</h2>
+          <p className="text-ink/80">{text.plantingBody}</p>
         </div>
       </section>
 
