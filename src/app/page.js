@@ -239,13 +239,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-4xl px-6 pb-20">
-        <div className="aurudu-nekath text-center">
-          <h2 className="text-2xl font-semibold">{text.plantingTitle}</h2>
-          <p className="text-ink/80">{text.plantingBody}</p>
-        </div>
-      </section>
-
       <footer className="pb-5 text-center text-sm text-ink/70">
         @Kasun Udayanga 2026
       </footer>
