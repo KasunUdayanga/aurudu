@@ -21,7 +21,8 @@ export function LanguageProvider({ children, defaultLanguage = "si" }) {
     globalThis.localStorage?.setItem("aurudu-language", language);
     if (typeof document !== "undefined") {
       document.documentElement.dataset.language = language;
-      document.documentElement.lang = language === "en" ? "en" : "si";
+      document.documentElement.lang =
+        language === "en" ? "en" : language === "ta" ? "ta" : "si";
     }
   }, [language]);
 

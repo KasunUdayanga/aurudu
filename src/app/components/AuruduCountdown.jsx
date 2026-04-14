@@ -37,6 +37,8 @@ export default function AuruduCountdown() {
     const labels =
       language === "en"
         ? ["Days", "Hours", "Minutes", "Seconds"]
+        : language === "ta"
+        ? ["நாட்கள்", "மணிகள்", "நிமிடங்கள்", "விநாடிகள்"]
         : ["දින", "පැය", "මිනිත්තු", "තත්පර"];
 
     return [
@@ -51,8 +53,16 @@ export default function AuruduCountdown() {
   if (language === "en") {
     headingText = "Almost there";
   }
+  if (language === "ta") {
+    headingText = "இன்னும் சிறிது நேரம்";
+  }
   if (timeLeft.isLive) {
-    headingText = language === "en" ? "Happy New Year!" : "අලුත් අවුරුද්ද ආවා!";
+    headingText =
+      language === "en"
+        ? "Happy New Year!"
+        : language === "ta"
+        ? "புத்தாண்டு வந்துவிட்டது!"
+        : "අලුත් අවුරුද්ද ආවා!";
   }
 
   return (
@@ -62,6 +72,8 @@ export default function AuruduCountdown() {
           <p className="aurudu-countdown-title">
             {language === "en"
               ? "Time remaining for the New Year"
+              : language === "ta"
+              ? "புத்தாண்டிற்கு மீதமுள்ள நேரம்"
               : "අලුත් අවුරුදු උදාවට "}
           </p>
         )}
@@ -71,6 +83,8 @@ export default function AuruduCountdown() {
         <div className="aurudu-countdown-live">
           {language === "en"
             ? "Wishing you a joyful and prosperous New Year!"
+            : language === "ta"
+            ? "மகிழ்ச்சியும் வளமும் நிறைந்த புத்தாண்டு நல்வாழ்த்துகள்!"
             : "සුභම සුභ අලුත් අවුරුද්දක් වේවා!"}
         </div>
       ) : (

@@ -6,6 +6,7 @@ import { useLanguage } from "./LanguageContext";
 const LANGUAGES = [
   { code: "si", label: "සිංහල" },
   { code: "en", label: "English" },
+  { code: "ta", label: "தமிழ்" },
 ];
 
 const COPY = {
@@ -17,6 +18,10 @@ const COPY = {
     title: "Select language",
     status: "You selected English.",
   },
+  ta: {
+    title: "மொழியை தேர்ந்தெடுக்கவும்",
+    status: "நீங்கள் தமிழ் தேர்ந்தெடுத்துள்ளீர்கள்.",
+  },
 };
 
 export default function LanguageToggle({ variant = "full" }) {
@@ -24,8 +29,15 @@ export default function LanguageToggle({ variant = "full" }) {
   const text = COPY[language] ?? COPY.si;
 
   if (variant === "compact") {
-    const nextLanguage = language === "si" ? "en" : "si";
-    const buttonLabel = language === "si" ? "English" : "සිංහල";
+    const ordered = ["si", "en", "ta"];
+    const currentIndex = ordered.indexOf(language);
+    const nextLanguage = ordered[(currentIndex + 1) % ordered.length];
+    const buttonLabel =
+      nextLanguage === "en"
+        ? "English"
+        : nextLanguage === "ta"
+        ? "தமிழ்"
+        : "සිංහල";
 
     return (
       <div className="language-compact" aria-label="Language selector">
